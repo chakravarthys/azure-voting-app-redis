@@ -13,7 +13,7 @@ pipeline {
 	   dir('$WORKSPACE/azure-vote'){
 		script{
 			docker.withRegistry('https://index.docker.io/v1/','dockercred'){
-			def image=docker.build('chakravarthys/dockerrepo:latest')
+			def image=docker.build('myimage:1.0')
 			image.push()
 }
 }	
