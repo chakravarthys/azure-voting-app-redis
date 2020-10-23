@@ -9,8 +9,8 @@ pipeline {
       }
       stage('push-container'){
 	steps{ 
-	   echo 'workspace is ${env.WORKSPACE}'
-	   dir('${env.WORKSPACE}/azure-vote'){
+	   echo "workspace is ${env.WORKSPACE}"
+	   dir("${env.WORKSPACE}/azure-vote"){
 		script{
 			docker.withRegistry('https://index.docker.io/v1/','dockercred'){
 			def image=docker.build('myimage:1.0')
