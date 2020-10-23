@@ -48,5 +48,17 @@ pipeline {
             
          }
       }
+      stage('push-container'){
+	steps{ 
+	   echo 'workspace is $WORKSPACE'
+	   dir('$WORKSPACE/azure-vote'){
+		script{
+		docker.withregistry('https://index.docker.io/v1/','dockercred')
+		def image=docker.build('https://hub.docker.com/repository/docker/chakravarthys/dockerrepo')
+		image.push()
+}	
+}
+}
+}
    }
 }
