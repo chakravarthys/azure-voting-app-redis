@@ -20,5 +20,10 @@ pipeline {
 }
 }
 }
+	stage('trivy scan'){
+	steps{
+		sh 'trivy chakravarthys/dockerrepo'
+}
+	}
    }
 }
